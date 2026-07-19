@@ -1,0 +1,544 @@
+Non-Disclosure Agreement (NDA):
+This agreement is effective as of the date signed by both parties. Confidential information includes all business, financial, and technical data disclosed by either party. The receiving party agrees not to disclose confidential information to any third party for a period of five (5) years from the date of disclosure. Obligations survive termination of this agreement.
+
+Termination Clause:
+Either party may terminate this agreement with thirty (30) days written notice. Upon termination, all confidential information must be returned or destroyed within fifteen (15) days.
+
+Liability Limitation:
+Neither party shall be liable to the other for any indirect, incidental, or consequential damages arising out of this agreement, including loss of profits, revenue, or data. The total liability of either party shall not exceed the total fees paid under this agreement.
+
+Governing Law:
+This agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws principles. Any disputes shall be resolved exclusively in the state or federal courts located in San Francisco, California.
+
+Service Agreement:
+Client agrees to pay Contractor $150 per hour for services rendered. Invoices are due upon receipt. Late payments shall accrue interest at 1.5% per month. Client reserves the right to terminate this agreement for cause, including material breach, with written notice.
+
+Warranty Disclaimer:
+Services are provided "as is" without warranties of any kind, either express or implied. Contractor does not warrant that services will be error‑free or uninterrupted. This limitation applies to the fullest extent permitted by law.
+
+Force Majeure:
+Neither party shall be liable for failure to perform obligations due to events beyond reasonable control, including acts of God, war, terrorism, natural disasters, or governmental actions.
+
+Data Protection:
+Both parties agree to comply with applicable data protection laws, including the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA). Personal data shall be processed in accordance with the parties' respective privacy policies.
+
+Arbitration:
+Any disputes arising under this agreement shall be resolved through binding arbitration administered by the American Arbitration Association in accordance with its Commercial Arbitration Rules. The arbitration shall take place in Los Angeles, California.
+
+Confidentiality of Trade Secrets:
+Confidential information specifically includes trade secrets, product specifications, customer lists, pricing strategies, and marketing plans. Violation of confidentiality obligations may result in injunctive relief and damages.
+
+Indemnification:
+Service Provider agrees to indemnify and hold Client harmless from any claims arising out of Provider's negligent acts or omissions, except where such claims arise from Client's own negligence.
+
+Entire Agreement:
+This contract constitutes the entire agreement between the parties and supersedes all prior negotiations, representations, or agreements, either written or oral. No modification shall be valid unless in writing and signed by both parties.
+
+Employment Agreement:
+Employee agrees to devote full time and attention to the duties assigned by Employer. Employee shall not engage in any outside business activities that conflict with their obligations to Employer. Employer may terminate this agreement at any time with or without cause.
+
+Consulting Agreement:
+Consultant agrees to provide services as an independent contractor. Consultant is responsible for all taxes and benefits. Consultant shall not be entitled to employee benefits or workers' compensation.
+
+Lease Agreement:
+Tenant agrees to pay $2,000 per month in rent, due on the first of each month. Late payments shall incur a $50 fee. Tenant shall not make alterations to the property without Landlord's written consent.
+
+Loan Agreement:
+Borrower agrees to repay the principal amount of $10,000 with interest at 5% per annum. Payments shall be made monthly over a period of 36 months. Default shall result in acceleration of the entire balance.
+
+Partnership Agreement:
+Partners shall share profits and losses equally. Each partner shall contribute $20,000 in capital. Decisions shall be made by majority vote. Any partner may withdraw with 30 days written notice.
+
+Settlement Agreement:
+The parties agree to settle all claims arising out of the dispute. Payment of $5,000 shall be made within 30 days. Upon payment, the parties release each other from all further liability.
+
+Confidentiality in M&A:
+In connection with a potential acquisition, the parties agree to keep all negotiations and terms confidential. Breach of confidentiality may result in termination of negotiations and legal action.
+
+Non-Compete:
+Employee agrees not to compete with Employer for a period of one year after termination, within a 50-mile radius, and in any business directly related to Employer's core operations.
+
+Assignment:
+Neither party may assign this agreement without the prior written consent of the other party. Any assignment without consent shall be void and unenforceable.
+
+Severability:
+If any provision of this agreement is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.
+
+Waiver:
+No waiver of any term or condition shall be effective unless in writing and signed by the waiving party. Failure to enforce any right shall not constitute a waiver of that right.
+
+Notices:
+All notices required under this agreement shall be in writing and delivered to the addresses listed below. Notices shall be deemed effective upon receipt.
+
+Time is of the Essence:
+Time is of the essence in the performance of all obligations under this agreement. Delays in performance shall be a material breach.
+
+Representations and Warranties:
+Each party represents and warrants that they have the full authority and legal capacity to enter into this agreement. No further approvals are required.
+
+Indemnification for IP:
+Service Provider agrees to indemnify Client against any claims that the services infringe on third-party intellectual property rights.
+
+Governing Law (New York):
+This agreement shall be governed by the laws of the State of New York. Disputes shall be resolved in courts located in Manhattan.
+
+Governing Law (Texas):
+This agreement shall be governed by the laws of the State of Texas. Disputes shall be resolved in courts located in Travis County.
+
+Governing Law (Delaware):
+This agreement shall be governed by the laws of the State of Delaware. Disputes shall be resolved in courts located in Wilmington.
+
+Confidentiality in Litigation:
+All information exchanged during litigation shall be treated as confidential and shall not be disclosed to third parties.
+
+Joint Venture:
+The parties agree to form a joint venture for the purpose of developing new software products. Profits shall be shared in accordance with each party's contribution.
+
+Subcontracting:
+Contractor may not subcontract any portion of the work without prior written consent of Client. Any unauthorized subcontracting shall be grounds for termination.
+
+Insurance:
+Contractor shall maintain general liability insurance with coverage of at least $1,000,000. Proof of insurance shall be provided upon request.
+
+Records and Audit:
+Client has the right to audit Contractor's records relating to this agreement upon reasonable notice.
+
+Amendments:
+No amendment to this agreement shall be effective unless in writing and signed by both parties.
+
+Counterparts:
+This agreement may be executed in multiple counterparts, each of which shall be deemed an original.
+
+Binding Effect:
+This agreement shall be binding upon and inure to the benefit of the parties and their respective successors and assigns.
+
+Good Faith:
+Each party agrees to act in good faith in the performance of all obligations under this agreement.
+
+No Third-Party Beneficiaries:
+This agreement is for the sole benefit of the parties and does not create any rights for third parties.
+
+Survival:
+Provisions regarding confidentiality, indemnification, and liability shall survive termination of this agreement.
+
+Solicitation:
+Employee agrees not to solicit any clients or employees of Employer for a period of one year after termination.
+
+Confidential Information Definition:
+Confidential information includes all information marked as confidential or reasonably understood to be confidential, including business plans, customer data, and technical specifications.
+
+Return of Property:
+Upon termination, Employee shall return all company property, including documents, laptops, and access cards.
+
+Dispute Resolution:
+The parties shall first attempt to resolve any dispute through mediation before initiating litigation.
+
+Attorney Fees:
+In the event of any legal action arising from this agreement, the prevailing party shall be entitled to recover reasonable attorney fees and costs.
+
+Publicity:
+Neither party shall use the other's name or logo for publicity purposes without prior written consent.
+
+Compliance with Laws:
+Both parties shall comply with all applicable federal, state, and local laws and regulations.
+
+Confidentiality of Terms:
+The terms and conditions of this agreement shall be kept confidential and not disclosed to any third party.
+
+Non-Disparagement:
+Employee agrees not to make any negative or disparaging statements about Employer or its employees.
+
+Resignation:
+Employee agrees to provide two weeks written notice of resignation. Employer may waive this notice period at its discretion.
+
+Employee Confidentiality:
+Employee shall not disclose any confidential information acquired during employment. This obligation survives termination indefinitely.
+
+Merger:
+This agreement merges all prior discussions and understandings into a single, final, integrated agreement.
+
+Authority:
+Each party represents that the signatory has the actual authority to enter into this agreement on behalf of the entity.
+
+Client's Responsibilities:
+Client agrees to provide timely access to necessary data, personnel, and systems for Contractor to perform the services.
+
+Confidentiality in Joint Development:
+All technical information shared during joint development shall be considered confidential and used only for the project.
+
+Independent Contractor Relationship:
+Contractor is an independent contractor. This agreement does not create an employer‑employee relationship or partnership.
+
+Non-Circumvention:
+Both parties agree not to circumvent each other in any business opportunities arising from this agreement.
+
+Most Favored Nation:
+If Contractor offers more favorable terms to another client, those terms shall also apply to Client.
+
+Exceptions to Confidentiality:
+Confidentiality obligations do not apply to information already publicly known or lawfully obtained from a third party without restriction.
+
+Service Standards:
+Contractor agrees to perform services in a professional manner consistent with industry standards.
+
+Client's Data:
+All data provided by Client shall be used solely for the purpose of performing services under this agreement.
+
+Intellectual Property Ownership:
+All intellectual property created under this agreement shall be owned by Client, including patents, copyrights, and trademarks.
+
+Feedback and Improvements:
+Client shall provide reasonable feedback to Contractor. Contractor shall make good faith efforts to address feedback.
+
+Delay Damages:
+If Contractor delays delivery, Client may reduce the fees by $100 per day of delay.
+
+Acceptance Testing:
+Client shall have 10 days to test the deliverables. If no defects are identified, deliverables shall be deemed accepted.
+
+Warranty Period:
+Contractor warrants that services shall conform to specifications for a period of 30 days after acceptance.
+
+Scope Changes:
+Any changes to the scope of work shall be documented in writing and may result in adjustments to fees and timeline.
+
+Billing Increments:
+Contractor shall bill services in 15‑minute increments. Travel time shall be billed at 50% of the standard rate.
+
+Sales Commission:
+Sales representative shall receive 10% commission on all sales generated from new accounts. Commission shall be paid within 30 days of payment by the client.
+ Master Services Agreement:
+This Master Services Agreement governs all future work orders between the parties. Each work order shall incorporate the terms of this agreement. In the event of conflict, the work order shall prevail.
+
+SOW (Statement of Work):
+The parties shall agree on a Statement of Work for each project. The SOW shall include deliverables, timeline, fees, and acceptance criteria. Any changes require a written amendment.
+
+Acceptance Criteria:
+Client shall have 10 business days to review deliverables. If no written objections are received, deliverables are deemed accepted. If objections are raised, Contractor shall have 5 days to remedy.
+
+Warranty of Services:
+Contractor warrants that services will be performed in a professional manner. If services do not meet this standard, Contractor will re-perform them at no additional cost. This warranty is exclusive and replaces all others.
+
+Warranty of Title:
+Contractor warrants that all deliverables are original and do not infringe on third‑party intellectual property rights. Contractor shall indemnify Client against any infringement claims.
+
+Limitation of Remedies:
+Client's sole remedy for breach of this agreement is termination and refund of fees paid. Contractor's total liability shall not exceed the total fees paid.
+
+Disclaimer of Consequential Damages:
+In no event shall either party be liable for loss of profits, revenue, data, or business interruption, even if advised of the possibility.
+
+Force Majeure (Extended):
+Neither party shall be liable for delays caused by events beyond reasonable control, including floods, earthquakes, labor strikes, supplier failures, and cyberattacks. The affected party shall notify the other within 5 days.
+
+Suspension of Services:
+Contractor may suspend services if Client is more than 30 days overdue on payment. Services shall resume upon payment of all outstanding invoices.
+
+Termination for Convenience:
+Either party may terminate this agreement at any time for convenience, with 30 days written notice. In such case, Client shall pay for all work completed up to the termination date.
+
+Termination for Cause:
+Either party may terminate this agreement immediately if the other party materially breaches and fails to cure within 15 days of written notice.
+
+Post‑Termination Obligations:
+Upon termination, Contractor shall deliver all work in progress and any documentation developed. Client shall pay for all work completed up to termination.
+
+Survival of Obligations:
+The following obligations survive termination: confidentiality, indemnification, payment of fees, and dispute resolution.
+
+Confidentiality of Client Data:
+Contractor shall treat all client data as confidential and shall not disclose or use it except as necessary to perform services.
+
+Data Security:
+Contractor shall implement industry‑standard security measures to protect client data, including encryption, access controls, and regular security audits.
+
+Data Breach Notification:
+Contractor shall notify Client within 48 hours of discovering a data breach that may affect Client's data. Contractor shall take immediate steps to mitigate the breach.
+
+Compliance with Export Laws:
+Both parties agree to comply with applicable export control laws. No data or technology shall be transferred to restricted countries without proper authorization.
+
+Anti‑Bribery:
+Neither party shall offer or accept bribes, kickbacks, or other improper payments in connection with this agreement. Violation shall result in immediate termination.
+
+Governing Law (UK):
+This agreement shall be governed by the laws of England and Wales. Disputes shall be resolved in the courts of London.
+
+Governing Law (Australia):
+This agreement shall be governed by the laws of New South Wales. Disputes shall be resolved in the courts of Sydney.
+
+Governing Law (Singapore):
+This agreement shall be governed by the laws of Singapore. Disputes shall be resolved in the courts of Singapore.
+
+Governing Law (Canada):
+This agreement shall be governed by the laws of Ontario. Disputes shall be resolved in the courts of Toronto.
+
+Governing Law (Germany):
+This agreement shall be governed by the laws of Germany. Disputes shall be resolved in the courts of Berlin.
+
+Entire Agreement (French Law):
+This agreement constitutes the entire understanding between the parties. No representations outside this agreement are binding.
+
+Confidentiality (Trade Secret):
+Confidential information includes source code, algorithms, pricing, customer lists, and business plans. This obligation survives termination.
+
+Non‑Solicit:
+For a period of 2 years after termination, Employee agrees not to solicit any employees, clients, or vendors of Employer.
+
+Non‑Compete (Broad):
+Employee agrees not to engage in any business that competes with Employer, within a 100‑mile radius, for a period of 2 years after termination.
+
+Non‑Compete (Narrow):
+Employee agrees not to work for any direct competitor listed in Exhibit A for a period of 1 year after termination.
+
+Invention Assignment:
+Any intellectual property created during employment, regardless of whether related to Employer's business, shall be the sole property of Employer.
+
+Work‑Made‑for‑Hire:
+All work produced by Contractor shall be considered a "work made for hire" and shall be owned by Client. Contractor assigns any rights to such work.
+
+Copyright Assignment:
+Contractor assigns all copyrights in deliverables to Client. Client shall have exclusive rights to reproduce, distribute, and modify the work.
+
+Patent Assignment:
+Contractor agrees to assign any patentable inventions arising from the work to Client. Contractor shall cooperate in the filing of patent applications.
+
+Trademark Usage:
+Client shall own all trademarks associated with the project. Contractor shall not use Client's trademarks without prior written consent.
+
+Confidentiality (Government Contracts):
+The parties agree to comply with all applicable government contracting laws, including FAR and DFARS requirements.
+
+Government Audit:
+The government reserves the right to audit all records related to this contract for a period of 3 years after completion.
+
+Public Records:
+Client agrees that certain information may be subject to public records laws. Any claims of exemption must be identified in writing.
+
+Small Business Subcontracting:
+Contractor agrees to use reasonable efforts to subcontract to small businesses, including minority‑owned and women‑owned businesses.
+
+Set‑Off:
+Client may set off any amounts owed to Contractor against any claims Client may have against Contractor.
+
+Withholding Taxes:
+Client may withhold taxes as required by law. Contractor shall provide all necessary documentation for tax compliance.
+
+Payment Schedule:
+Payments shall be made in the following installments: 30% upon signing, 40% upon completion of milestones, and 30% upon final delivery.
+
+Payment Escrow:
+Client shall deposit the total fee into an escrow account. Contractor shall be paid upon completion and acceptance of deliverables.
+
+Retainer:
+Client shall pay a $5,000 retainer. Services shall be billed against the retainer. Any unused retainer shall be refunded within 30 days of termination.
+
+Credit Terms:
+Contractor shall grant Client net‑30 payment terms. Late payments shall accrue interest at 1.5% per month.
+
+Interest on Late Payments:
+All overdue payments shall bear interest at 1.5% per month, or the maximum rate permitted by law, whichever is lower.
+
+Collection Costs:
+Client shall be responsible for all costs of collection, including attorney fees and court costs, if invoices are not paid within 60 days.
+
+Currency:
+All amounts under this agreement shall be in US dollars. Any currency conversion shall be at the prevailing exchange rate on the date of payment.
+
+Indexing:
+The fees shall be adjusted annually based on the Consumer Price Index (CPI) published by the Bureau of Labor Statistics.
+
+Invoice Disputes:
+Any dispute regarding an invoice must be raised in writing within 15 days of receipt. Late disputes shall be deemed waived.
+
+Audit Rights:
+Client may audit Contractor's records relating to this agreement upon 30 days notice. Audits shall be conducted during normal business hours.
+
+Confidentiality of Negotiations:
+The parties agree to keep all negotiations confidential. No public statements shall be made without mutual consent.
+
+Press Releases:
+Neither party shall issue any press release regarding this agreement without the other party's prior written consent.
+
+References:
+Contractor may list Client as a reference in marketing materials. Client reserves the right to withdraw this permission at any time.
+
+Use of Name:
+Neither party shall use the other party's name, logo, or trademarks in any advertising without prior written consent.
+
+Licensing of IP:
+Client grants Contractor a license to use IP solely for the purpose of performing services. No other rights are granted.
+
+Right to Subcontract:
+Contractor may not subcontract without Client's written consent. Unauthorized subcontracting is a material breach.
+
+Insurance (General):
+Contractor shall maintain general liability insurance with limits of at least $1,000,000. Proof of insurance shall be provided within 10 days of request.
+
+Insurance (Professional):
+Contractor shall maintain professional liability insurance with limits of at least $1,000,000. This insurance shall cover errors and omissions.
+
+Insurance (Cyber):
+Contractor shall maintain cyber liability insurance with limits of at least $1,000,000. This insurance shall cover data breaches and cyberattacks.
+
+Indemnification (General):
+Each party agrees to indemnify the other from any claims arising from the indemnifying party's gross negligence or willful misconduct.
+
+Indemnification (IP):
+Contractor agrees to indemnify Client from any claims of infringement arising from the use of deliverables. Contractor shall have the right to control the defense.
+
+Indemnification (Data Breach):
+Contractor shall indemnify Client for all losses arising from a data breach caused by Contractor's negligence. This includes notification costs and regulatory fines.
+
+Limitation of Liability (Cap):
+Total liability of either party shall not exceed the total fees paid under this agreement. This cap applies to all claims, whether in contract or tort.
+
+Limitation of Liability (Exclusions):
+The limitations of liability do not apply to fraud, willful misconduct, violation of law, or breach of confidentiality.
+
+Mitigation:
+Each party has a duty to mitigate damages. Failure to mitigate shall reduce the amount of recoverable damages.
+
+Reliance:
+Client acknowledges that it has not relied on any representations outside this agreement. This agreement constitutes the final understanding.
+
+No Partnership:
+This agreement does not create a partnership, joint venture, or agency relationship. Neither party has authority to bind the other.
+
+Third‑Party Beneficiaries:
+This agreement is intended solely for the benefit of the parties. No third parties have rights under this agreement.
+
+Exhibition:
+All exhibits and schedules attached to this agreement are incorporated by reference and form part of the agreement.
+
+Amendment:
+This agreement may not be amended except by a written instrument signed by both parties.
+
+Waiver of Rights:
+No failure to enforce any right shall constitute a waiver of that right. Waivers must be in writing.
+
+Construction:
+The headings in this agreement are for convenience only. They do not affect the interpretation of the agreement.
+
+Severability:
+If any provision of this agreement is found to be invalid, the remaining provisions shall continue in full force and effect.
+
+Cumulative Remedies:
+All remedies under this agreement are cumulative and not exclusive. Exercising one remedy does not preclude exercising others.
+
+Statute of Limitations:
+No action may be brought under this agreement more than 2 years after the cause of action accrues.
+
+Governing Documents:
+In the event of conflict between this agreement and any referenced documents, this agreement shall prevail unless the referenced document explicitly states otherwise.
+
+Integration:
+This agreement supersedes all prior negotiations, understandings, and agreements. No external statements shall be considered binding.
+
+Consent to Jurisdiction:
+Each party consents to the exclusive jurisdiction of the courts of California for any dispute arising from this agreement.
+
+Service of Process:
+Service of process shall be effective if delivered to the addresses listed in this agreement or sent by certified mail.
+
+Dispute Resolution (Mediation):
+The parties shall first attempt to resolve disputes through mediation with a mutually agreed mediator. The costs shall be shared equally.
+
+Dispute Resolution (Arbitration):
+Disputes shall be resolved by binding arbitration administered by JAMS. The arbitrator may award damages, but not punitive damages or injunctive relief.
+
+Dispute Resolution (Escalation):
+Disputes shall be escalated to senior management before formal proceedings. The parties shall meet in person to attempt resolution.
+
+Attorney Fees:
+The prevailing party in any dispute shall be entitled to recover reasonable attorney fees and costs.
+
+Language:
+All communications under this agreement shall be in English. Any translation shall be for convenience and shall not be binding.
+
+Reporting:
+Contractor shall provide progress reports on a weekly basis. Reports shall include status of deliverables, risks, and issues.
+
+Meetings:
+The parties shall meet monthly to review progress, address concerns, and adjust priorities. Meetings may be held virtually.
+
+Point of Contact:
+Each party shall designate a point of contact for communication. All changes in contact details shall be provided in writing.
+
+Technical Support:
+Contractor shall provide 30 days of free technical support after delivery. Support shall be available during business hours.
+
+Training:
+Contractor shall provide training to Client's personnel at no additional cost. Training shall be delivered remotely or on-site as agreed.
+
+Documentation:
+Contractor shall provide user manuals and technical documentation as part of the deliverables. Documentation shall be in English.
+
+Transition Assistance:
+Upon termination, Contractor shall provide transition assistance for 30 days to facilitate a smooth handover to a new provider.
+
+Records Retention:
+Contractor shall retain all records related to this project for 3 years after termination. Records shall be available for inspection upon reasonable notice.
+
+Data Export:
+Upon termination, Client shall have the right to export all data. Contractor shall assist in the export process at no additional cost.
+
+Deletion of Data:
+Upon completion, Contractor shall delete all Client data within 30 days. Contractor shall certify the deletion in writing.
+
+Emergency Access:
+Client shall have emergency access to Contractor's systems in the event of a disaster. Contractor shall provide necessary credentials.
+
+Disaster Recovery:
+Contractor shall maintain a disaster recovery plan that allows services to resume within 48 hours of an outage.
+
+Backup:
+Contractor shall maintain daily backups of all project data. Backups shall be stored securely and tested regularly.
+
+System Availability:
+Contractor shall maintain system availability of 99.9% excluding scheduled maintenance. Downtime shall be communicated in advance.
+
+Scheduled Maintenance:
+Maintenance windows shall be communicated at least 48 hours in advance. Maintenance shall occur during off‑peak hours.
+
+Emergency Maintenance:
+Emergency maintenance may be performed without prior notice to address critical security or stability issues.
+
+Service Credits:
+If system availability falls below 99.9%, Client shall receive service credits based on the percentage of downtime.
+
+Service Level Agreement (SLA):
+This agreement includes an SLA that defines performance targets, response times, and service credits.
+
+Incident Response:
+Contractor shall provide incident response services 24/7. Critical incidents shall be addressed within 2 hours.
+
+Escalation Matrix:
+The parties shall define an escalation matrix for issue resolution. Issues shall be escalated to senior management if unresolved for more than 24 hours.
+
+Root Cause Analysis:
+Contractor shall provide a root cause analysis for any major outage. Recommendations for prevention shall be implemented within 30 days.
+
+Security Testing:
+Contractor shall conduct annual security testing, including vulnerability assessments and penetration testing.
+
+Vulnerability Disclosure:
+Contractor shall report all known vulnerabilities to Client within 5 days. Critical vulnerabilities shall be patched within 48 hours.
+
+Software Updates:
+Contractor shall provide software updates and patches at no additional cost for a period of 1 year after delivery.
+
+End‑of‑Life:
+Contractor shall provide notice at least 6 months in advance of any product end‑of‑life. Migration assistance shall be provided.
+
+User Licenses:
+Client shall purchase user licenses for all employees accessing the software. Licenses are non‑transferable.
+
+Open Source:
+Contractor shall disclose all open‑source components used. Contractor shall comply with all open‑source licenses.
+
+Third‑Party Libraries:
+Contractor shall maintain a list of all third‑party libraries used. Updates to libraries shall be provided regularly.
+
+Customization Rights:
+Client may request customizations to the software. Customizations shall be billed at the prevailing hourly rate.
