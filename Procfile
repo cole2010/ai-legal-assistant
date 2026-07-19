@@ -1,1 +1,1 @@
-web: python api.py
+web: python src/api.py
