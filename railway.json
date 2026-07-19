@@ -1,9 +1,5 @@
 {
-  "build": {
-    "builder": "NIXPACKS"
-  },
   "deploy": {
-    "startCommand": "python api.py",
-    "healthcheckPath": "/ping"
+    "startCommand": "python src/api.py"
   }
 }
