@@ -3,7 +3,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "python src/api.py",
+    "startCommand": "python api.py",
     "healthcheckPath": "/ping"
   }
 }
