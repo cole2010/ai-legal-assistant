@@ -10,8 +10,8 @@ model_path = "./models/legal_ai"
 if os.path.exists(model_path):
     legal_ai = pipeline("text-generation", model=model_path)
 else:
-    print("⚠️ Using fallback model.")
-    legal_ai = pipeline("text-generation", model="gpt2")
+    print("⚠️ Using lightweight fallback model.")
+    legal_ai = pipeline("text-generation", model="distilgpt2")
 
 # ---------- ROUTES ----------
 
