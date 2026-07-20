@@ -159,7 +159,8 @@
     </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/transformers.js/2.11.0/transformers.min.js">
+<!-- TRY TWO DIFFERENT CDNS -->
+<script src="https://unpkg.com/@xenova/transformers@2.11.0/dist/transformers.min.js">
 </script>
 <script>
     (function() {
@@ -179,7 +180,14 @@
 
                 // Check if transformers is loaded
                 if (typeof transformers === 'undefined') {
-                    throw new Error('Transformers library not loaded. Please refresh the page.');
+                    // Try loading from backup CDN
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/transformers.js/2.11.0/transformers.min.js';
+                    document.head.appendChild(script);
+                    await new Promise((resolve) => setTimeout(resolve, 2000));
+                    if (typeof transformers === 'undefined') {
+                        throw new Error('Transformers library failed to load. Please check your internet connection.');
+                    }
                 }
 
                 const { pipeline: pipe } = transformers;
