@@ -154,78 +154,43 @@
     <div id="result"></div>
 
     <div class="footer">
-        <span class="badge">⚡ Powered by Hugging Face</span>
-        <span style="color: #ff6b6b; margin-left: 10px; font-size: 12px;">⚠️ Token visible in source</span>
+        <span class="badge">⚡ Powered by Cloudflare Functions</span>
     </div>
 </div>
 
 <script>
-    // ---------- YOUR TOKEN (HARD-CODED) ----------
-    const HF_TOKEN = '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';
-    const API_URL = 'https://api-inference.huggingface.co/models/gpt2';
-
-    // ---------- DOM REFS ----------
-    const clause = document.getElementById('clause');
-    const resultDiv = document.getElementById('result');
-    const loader = document.getElementById('loader');
-
-    // ---------- API CALL ----------
-    async function query(prompt) {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${HF_TOKEN}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                inputs: prompt,
-                parameters: {
-                    max_new_tokens: 100,
-                    temperature: 0.7,
-                    return_full_text: false
-                }
-            })
-        });
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.error || 'API error');
+    // ---------- CALL THE CLOUDFLARE FUNCTION ----------
+    async function callAPI(action, text) {
+        if (!text.trim()) {
+            document.getElementById('result').textContent = '⚠️ Please paste a legal clause first.';
+            document.getElementById('result').classList.add('show');
+            return;
         }
-        const data = await response.json();
-        return data[0]?.generated_text || 'No response.';
-    }
 
-    // ---------- ANALYZE ----------
-    async function analyze(text) {
+        const loader = document.getElementById('loader');
+        const resultDiv = document.getElementById('result');
+
         loader.classList.add('show');
         resultDiv.classList.remove('show');
         resultDiv.textContent = '';
 
         try {
-            const prompt = `Explain this legal clause in plain English. Highlight risks:\n\n${text}`;
-            const response = await query(prompt);
-            resultDiv.textContent = response;
-            resultDiv.classList.add('show');
-        } catch (err) {
-            resultDiv.textContent = '❌ Error: ' + err.message;
-            resultDiv.classList.add('show');
-        } finally {
-            loader.classList.remove('show');
-        }
-    }
+            const response = await fetch('/api', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text, action })
+            });
 
-    // ---------- SUMMARIZE ----------
-    async function summarize(text) {
-        loader.classList.add('show');
-        resultDiv.classList.remove('show');
-        resultDiv.textContent = '';
+            const data = await response.json();
 
-        try {
-            const prompt = `Summarize this legal clause:\n\n${text}`;
-            const response = await query(prompt);
-            resultDiv.textContent = response;
+            if (data.error) {
+                throw new Error(data.error);
+            }
+
+            resultDiv.textContent = data.result;
             resultDiv.classList.add('show');
-        } catch (err) {
-            resultDiv.textContent = '❌ Error: ' + err.message;
+        } catch (error) {
+            resultDiv.textContent = '❌ Error: ' + error.message;
             resultDiv.classList.add('show');
         } finally {
             loader.classList.remove('show');
@@ -234,36 +199,26 @@
 
     // ---------- EVENT LISTENERS ----------
     document.getElementById('analyzeBtn').addEventListener('click', () => {
-        const text = clause.value.trim();
-        if (!text) {
-            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
-            resultDiv.classList.add('show');
-            return;
-        }
-        analyze(text);
+        const text = document.getElementById('clause').value;
+        callAPI('analyze', text);
     });
 
     document.getElementById('summarizeBtn').addEventListener('click', () => {
-        const text = clause.value.trim();
-        if (!text) {
-            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
-            resultDiv.classList.add('show');
-            return;
-        }
-        summarize(text);
+        const text = document.getElementById('clause').value;
+        callAPI('summarize', text);
     });
 
     document.getElementById('clearBtn').addEventListener('click', () => {
-        clause.value = '';
-        resultDiv.classList.remove('show');
-        resultDiv.textContent = '';
+        document.getElementById('clause').value = '';
+        document.getElementById('result').classList.remove('show');
+        document.getElementById('result').textContent = '';
     });
 
     document.querySelectorAll('[data-sample]').forEach(btn => {
         btn.addEventListener('click', () => {
-            clause.value = btn.dataset.sample;
-            resultDiv.classList.remove('show');
-            resultDiv.textContent = '';
+            document.getElementById('clause').value = btn.dataset.sample;
+            document.getElementById('result').classList.remove('show');
+            document.getElementById('result').textContent = '';
         });
     });
 </script>
