@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Legal AI Assistant</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0b0e14;
@@ -30,26 +25,9 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.6);
             border: 1px solid #2d3545;
         }
-        h1 {
-            font-size: 28px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        h1 span {
-            background: #2d8cff;
-            font-size: 18px;
-            padding: 2px 12px;
-            border-radius: 30px;
-            color: #fff;
-        }
-        .sub {
-            color: #8892a8;
-            margin-top: 6px;
-            margin-bottom: 22px;
-            font-size: 15px;
-        }
+        h1 { font-size: 28px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        h1 span { background: #2d8cff; font-size: 18px; padding: 2px 12px; border-radius: 30px; color: #fff; }
+        .sub { color: #8892a8; margin-top: 6px; margin-bottom: 22px; font-size: 15px; }
         textarea {
             width: 100%;
             height: 160px;
@@ -64,16 +42,8 @@
             outline: none;
             transition: 0.2s;
         }
-        textarea:focus {
-            border-color: #2d8cff;
-            box-shadow: 0 0 0 3px rgba(45, 140, 255, 0.15);
-        }
-        .row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin: 18px 0 12px;
-        }
+        textarea:focus { border-color: #2d8cff; box-shadow: 0 0 0 3px rgba(45, 140, 255, 0.15); }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 12px; }
         .row button {
             background: #2d8cff;
             border: none;
@@ -91,22 +61,10 @@
             justify-content: center;
             gap: 8px;
         }
-        .row button:hover {
-            background: #1a6edb;
-            transform: scale(1.02);
-        }
-        .row button.secondary {
-            background: #2d3545;
-        }
-        .row button.secondary:hover {
-            background: #3d465a;
-        }
-        .samples {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 14px 0 18px;
-        }
+        .row button:hover { background: #1a6edb; transform: scale(1.02); }
+        .row button.secondary { background: #2d3545; }
+        .row button.secondary:hover { background: #3d465a; }
+        .samples { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
         .samples button {
             background: #242b3a;
             border: 1px solid #2d3545;
@@ -117,11 +75,7 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .samples button:hover {
-            background: #2d8cff;
-            color: #fff;
-            border-color: #2d8cff;
-        }
+        .samples button:hover { background: #2d8cff; color: #fff; border-color: #2d8cff; }
         #result {
             margin-top: 22px;
             background: #0f131c;
@@ -134,9 +88,7 @@
             min-height: 60px;
             display: none;
         }
-        #result.show {
-            display: block;
-        }
+        #result.show { display: block; }
         .loader {
             display: none;
             margin: 16px 0 10px;
@@ -145,9 +97,7 @@
             align-items: center;
             gap: 10px;
         }
-        .loader.show {
-            display: flex;
-        }
+        .loader.show { display: flex; }
         .spinner {
             width: 18px;
             height: 18px;
@@ -165,10 +115,7 @@
             border-top: 1px solid #1f2736;
             padding-top: 20px;
         }
-        .footer a {
-            color: #2d8cff;
-            text-decoration: none;
-        }
+        .footer a { color: #2d8cff; text-decoration: none; }
         .badge {
             background: #1f2736;
             padding: 4px 12px;
@@ -177,6 +124,7 @@
             color: #8892a8;
             display: inline-block;
         }
+        .error { color: #ff6b6b; }
     </style>
 </head>
 <body>
@@ -207,23 +155,125 @@
     <div id="result"></div>
 
     <div class="footer">
-        <span class="badge">⚡ Hosted on Railway</span>
-        &nbsp;·&nbsp; <a href="#" id="pingLink">Check API status</a>
+        <span class="badge">⚡ Runs in your browser</span>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.11.0/dist/transformers.min.js"></script>
 <script>
-    const API_BASE = 'https://ai-legal-assistant-production-419a.up.railway.app';
-
+    // ---------- SETUP ----------
     const clause = document.getElementById('clause');
     const resultDiv = document.getElementById('result');
     const loader = document.getElementById('loader');
-    const analyzeBtn = document.getElementById('analyzeBtn');
-    const summarizeBtn = document.getElementById('summarizeBtn');
-    const clearBtn = document.getElementById('clearBtn');
-    const pingLink = document.getElementById('pingLink');
 
-    // --- Sample buttons ---
+    let pipeline = null;
+    let isReady = false;
+
+    // ---------- LOAD AI MODEL ----------
+    async function loadModel() {
+        try {
+            loader.classList.add('show');
+            loader.querySelector('span').textContent = 'Loading AI model… (first time may take a moment)';
+            const { pipeline: pipe } = transformers;
+            pipeline = await pipe('text-generation', 'Xenova/gpt2');
+            isReady = true;
+            loader.querySelector('span').textContent = '✅ AI ready!';
+            setTimeout(() => loader.classList.remove('show'), 1000);
+        } catch (err) {
+            loader.querySelector('span').textContent = '❌ Failed to load AI: ' + err.message;
+            loader.classList.add('show');
+        }
+    }
+
+    // ---------- ANALYZE ----------
+    async function analyze(text) {
+        if (!isReady) {
+            resultDiv.textContent = '⏳ AI is still loading. Please wait…';
+            resultDiv.classList.add('show');
+            return;
+        }
+
+        loader.classList.add('show');
+        loader.querySelector('span').textContent = 'Analyzing…';
+        resultDiv.classList.remove('show');
+
+        try {
+            const prompt = `Explain this legal clause in plain English. Highlight risks:\n\n${text}`;
+            const result = await pipeline(prompt, {
+                max_new_tokens: 100,
+                temperature: 0.7,
+                do_sample: true
+            });
+            const raw = result[0].generated_text;
+            const clean = raw.replace(prompt, '').trim() || 'No analysis generated.';
+            resultDiv.textContent = clean;
+            resultDiv.classList.add('show');
+        } catch (err) {
+            resultDiv.textContent = '❌ Error: ' + err.message;
+            resultDiv.classList.add('show');
+        } finally {
+            loader.classList.remove('show');
+        }
+    }
+
+    // ---------- SUMMARIZE ----------
+    async function summarize(text) {
+        if (!isReady) {
+            resultDiv.textContent = '⏳ AI is still loading. Please wait…';
+            resultDiv.classList.add('show');
+            return;
+        }
+
+        loader.classList.add('show');
+        loader.querySelector('span').textContent = 'Summarizing…';
+        resultDiv.classList.remove('show');
+
+        try {
+            const prompt = `Summarize this legal clause:\n\n${text}`;
+            const result = await pipeline(prompt, {
+                max_new_tokens: 80,
+                temperature: 0.7,
+                do_sample: true
+            });
+            const raw = result[0].generated_text;
+            const clean = raw.replace(prompt, '').trim() || 'No summary generated.';
+            resultDiv.textContent = clean;
+            resultDiv.classList.add('show');
+        } catch (err) {
+            resultDiv.textContent = '❌ Error: ' + err.message;
+            resultDiv.classList.add('show');
+        } finally {
+            loader.classList.remove('show');
+        }
+    }
+
+    // ---------- EVENT LISTENERS ----------
+    document.getElementById('analyzeBtn').addEventListener('click', () => {
+        const text = clause.value.trim();
+        if (!text) {
+            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
+            resultDiv.classList.add('show');
+            return;
+        }
+        analyze(text);
+    });
+
+    document.getElementById('summarizeBtn').addEventListener('click', () => {
+        const text = clause.value.trim();
+        if (!text) {
+            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
+            resultDiv.classList.add('show');
+            return;
+        }
+        summarize(text);
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+        clause.value = '';
+        resultDiv.classList.remove('show');
+        resultDiv.textContent = '';
+    });
+
     document.querySelectorAll('[data-sample]').forEach(btn => {
         btn.addEventListener('click', () => {
             clause.value = btn.dataset.sample;
@@ -232,66 +282,8 @@
         });
     });
 
-    // --- Clear ---
-    clearBtn.addEventListener('click', () => {
-        clause.value = '';
-        resultDiv.classList.remove('show');
-        resultDiv.textContent = '';
-    });
-
-    // --- Ping (check API) ---
-    pingLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        fetch(`${API_BASE}/ping`)
-            .then(r => r.json())
-            .then(data => {
-                resultDiv.textContent = '✅ API is alive: ' + JSON.stringify(data, null, 2);
-                resultDiv.classList.add('show');
-            })
-            .catch(err => {
-                resultDiv.textContent = '❌ API unreachable: ' + err.message;
-                resultDiv.classList.add('show');
-            });
-    });
-
-    // --- Generic API call ---
-    async function callAPI(endpoint, text) {
-        if (!text.trim()) {
-            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
-            resultDiv.classList.add('show');
-            return;
-        }
-
-        loader.classList.add('show');
-        resultDiv.classList.remove('show');
-        resultDiv.textContent = '';
-
-        try {
-            const response = await fetch(`${API_BASE}/${endpoint}`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: text })
-            });
-
-            if (!response.ok) {
-                const errText = await response.text();
-                throw new Error(`Server error (${response.status}): ${errText}`);
-            }
-
-            const data = await response.json();
-            const content = data.analysis || data.summary || '⚠️ No content in response.';
-            resultDiv.textContent = content;
-            resultDiv.classList.add('show');
-        } catch (error) {
-            resultDiv.textContent = '❌ Error: ' + error.message;
-            resultDiv.classList.add('show');
-        } finally {
-            loader.classList.remove('show');
-        }
-    }
-
-    analyzeBtn.addEventListener('click', () => callAPI('analyze', clause.value));
-    summarizeBtn.addEventListener('click', () => callAPI('summarize', clause.value));
+    // ---------- START ----------
+    loadModel();
 </script>
 
 </body>
