@@ -124,11 +124,9 @@
             color: #8892a8;
             display: inline-block;
         }
-        .error { color: #ff6b6b; }
     </style>
 </head>
 <body>
-
 <div class="container">
     <h1>⚖️ Legal AI <span>v1</span></h1>
     <div class="sub">Paste a contract clause — get risks &amp; a plain‑English breakdown</div>
@@ -159,7 +157,8 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.11.0/dist/transformers.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.11.0/dist/transformers.min.js">
+</script>
 <script>
     // ---------- SETUP ----------
     const clause = document.getElementById('clause');
@@ -285,6 +284,5 @@
     // ---------- START ----------
     loadModel();
 </script>
-
 </body>
 </html>
