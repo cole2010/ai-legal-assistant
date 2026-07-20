@@ -124,9 +124,11 @@
             color: #8892a8;
             display: inline-block;
         }
+        .error { color: #ff6b6b; }
     </style>
 </head>
 <body>
+
 <div class="container">
     <h1>⚖️ Legal AI <span>v1</span></h1>
     <div class="sub">Paste a contract clause — get risks &amp; a plain‑English breakdown</div>
@@ -157,132 +159,142 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.11.0/dist/transformers.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/transformers.js/2.11.0/transformers.min.js">
 </script>
 <script>
-    // ---------- SETUP ----------
-    const clause = document.getElementById('clause');
-    const resultDiv = document.getElementById('result');
-    const loader = document.getElementById('loader');
+    (function() {
+        // ---------- SETUP ----------
+        const clause = document.getElementById('clause');
+        const resultDiv = document.getElementById('result');
+        const loader = document.getElementById('loader');
 
-    let pipeline = null;
-    let isReady = false;
+        let pipeline = null;
+        let isReady = false;
 
-    // ---------- LOAD AI MODEL ----------
-    async function loadModel() {
-        try {
+        // ---------- LOAD AI MODEL ----------
+        async function loadModel() {
+            try {
+                loader.classList.add('show');
+                loader.querySelector('span').textContent = 'Loading AI model… (first time may take a moment)';
+
+                // Check if transformers is loaded
+                if (typeof transformers === 'undefined') {
+                    throw new Error('Transformers library not loaded. Please refresh the page.');
+                }
+
+                const { pipeline: pipe } = transformers;
+                pipeline = await pipe('text-generation', 'Xenova/gpt2');
+                isReady = true;
+                loader.querySelector('span').textContent = '✅ AI ready!';
+                setTimeout(() => loader.classList.remove('show'), 1000);
+            } catch (err) {
+                loader.querySelector('span').textContent = '❌ Failed to load AI: ' + err.message;
+                loader.classList.add('show');
+                console.error('AI Load Error:', err);
+            }
+        }
+
+        // ---------- ANALYZE ----------
+        async function analyze(text) {
+            if (!isReady) {
+                resultDiv.textContent = '⏳ AI is still loading. Please wait…';
+                resultDiv.classList.add('show');
+                return;
+            }
+
             loader.classList.add('show');
-            loader.querySelector('span').textContent = 'Loading AI model… (first time may take a moment)';
-            const { pipeline: pipe } = transformers;
-            pipeline = await pipe('text-generation', 'Xenova/gpt2');
-            isReady = true;
-            loader.querySelector('span').textContent = '✅ AI ready!';
-            setTimeout(() => loader.classList.remove('show'), 1000);
-        } catch (err) {
-            loader.querySelector('span').textContent = '❌ Failed to load AI: ' + err.message;
+            loader.querySelector('span').textContent = 'Analyzing…';
+            resultDiv.classList.remove('show');
+
+            try {
+                const prompt = `Explain this legal clause in plain English. Highlight risks:\n\n${text}`;
+                const result = await pipeline(prompt, {
+                    max_new_tokens: 100,
+                    temperature: 0.7,
+                    do_sample: true
+                });
+                const raw = result[0].generated_text;
+                const clean = raw.replace(prompt, '').trim() || 'No analysis generated.';
+                resultDiv.textContent = clean;
+                resultDiv.classList.add('show');
+            } catch (err) {
+                resultDiv.textContent = '❌ Error: ' + err.message;
+                resultDiv.classList.add('show');
+            } finally {
+                loader.classList.remove('show');
+            }
+        }
+
+        // ---------- SUMMARIZE ----------
+        async function summarize(text) {
+            if (!isReady) {
+                resultDiv.textContent = '⏳ AI is still loading. Please wait…';
+                resultDiv.classList.add('show');
+                return;
+            }
+
             loader.classList.add('show');
-        }
-    }
+            loader.querySelector('span').textContent = 'Summarizing…';
+            resultDiv.classList.remove('show');
 
-    // ---------- ANALYZE ----------
-    async function analyze(text) {
-        if (!isReady) {
-            resultDiv.textContent = '⏳ AI is still loading. Please wait…';
-            resultDiv.classList.add('show');
-            return;
-        }
-
-        loader.classList.add('show');
-        loader.querySelector('span').textContent = 'Analyzing…';
-        resultDiv.classList.remove('show');
-
-        try {
-            const prompt = `Explain this legal clause in plain English. Highlight risks:\n\n${text}`;
-            const result = await pipeline(prompt, {
-                max_new_tokens: 100,
-                temperature: 0.7,
-                do_sample: true
-            });
-            const raw = result[0].generated_text;
-            const clean = raw.replace(prompt, '').trim() || 'No analysis generated.';
-            resultDiv.textContent = clean;
-            resultDiv.classList.add('show');
-        } catch (err) {
-            resultDiv.textContent = '❌ Error: ' + err.message;
-            resultDiv.classList.add('show');
-        } finally {
-            loader.classList.remove('show');
-        }
-    }
-
-    // ---------- SUMMARIZE ----------
-    async function summarize(text) {
-        if (!isReady) {
-            resultDiv.textContent = '⏳ AI is still loading. Please wait…';
-            resultDiv.classList.add('show');
-            return;
+            try {
+                const prompt = `Summarize this legal clause:\n\n${text}`;
+                const result = await pipeline(prompt, {
+                    max_new_tokens: 80,
+                    temperature: 0.7,
+                    do_sample: true
+                });
+                const raw = result[0].generated_text;
+                const clean = raw.replace(prompt, '').trim() || 'No summary generated.';
+                resultDiv.textContent = clean;
+                resultDiv.classList.add('show');
+            } catch (err) {
+                resultDiv.textContent = '❌ Error: ' + err.message;
+                resultDiv.classList.add('show');
+            } finally {
+                loader.classList.remove('show');
+            }
         }
 
-        loader.classList.add('show');
-        loader.querySelector('span').textContent = 'Summarizing…';
-        resultDiv.classList.remove('show');
+        // ---------- EVENT LISTENERS ----------
+        document.getElementById('analyzeBtn').addEventListener('click', () => {
+            const text = clause.value.trim();
+            if (!text) {
+                resultDiv.textContent = '⚠️ Please paste a legal clause first.';
+                resultDiv.classList.add('show');
+                return;
+            }
+            analyze(text);
+        });
 
-        try {
-            const prompt = `Summarize this legal clause:\n\n${text}`;
-            const result = await pipeline(prompt, {
-                max_new_tokens: 80,
-                temperature: 0.7,
-                do_sample: true
-            });
-            const raw = result[0].generated_text;
-            const clean = raw.replace(prompt, '').trim() || 'No summary generated.';
-            resultDiv.textContent = clean;
-            resultDiv.classList.add('show');
-        } catch (err) {
-            resultDiv.textContent = '❌ Error: ' + err.message;
-            resultDiv.classList.add('show');
-        } finally {
-            loader.classList.remove('show');
-        }
-    }
+        document.getElementById('summarizeBtn').addEventListener('click', () => {
+            const text = clause.value.trim();
+            if (!text) {
+                resultDiv.textContent = '⚠️ Please paste a legal clause first.';
+                resultDiv.classList.add('show');
+                return;
+            }
+            summarize(text);
+        });
 
-    // ---------- EVENT LISTENERS ----------
-    document.getElementById('analyzeBtn').addEventListener('click', () => {
-        const text = clause.value.trim();
-        if (!text) {
-            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
-            resultDiv.classList.add('show');
-            return;
-        }
-        analyze(text);
-    });
-
-    document.getElementById('summarizeBtn').addEventListener('click', () => {
-        const text = clause.value.trim();
-        if (!text) {
-            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
-            resultDiv.classList.add('show');
-            return;
-        }
-        summarize(text);
-    });
-
-    document.getElementById('clearBtn').addEventListener('click', () => {
-        clause.value = '';
-        resultDiv.classList.remove('show');
-        resultDiv.textContent = '';
-    });
-
-    document.querySelectorAll('[data-sample]').forEach(btn => {
-        btn.addEventListener('click', () => {
-            clause.value = btn.dataset.sample;
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            clause.value = '';
             resultDiv.classList.remove('show');
             resultDiv.textContent = '';
         });
-    });
 
-    // ---------- START ----------
-    loadModel();
+        document.querySelectorAll('[data-sample]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                clause.value = btn.dataset.sample;
+                resultDiv.classList.remove('show');
+                resultDiv.textContent = '';
+            });
+        });
+
+        // ---------- START ----------
+        loadModel();
+    })();
 </script>
+
 </body>
 </html>
