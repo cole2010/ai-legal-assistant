@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal AI Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0b0e14;
+            color: #e4e7ed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #1a1f2b;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+            border: 1px solid #2d3545;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h1 span {
+            background: #2d8cff;
+            font-size: 18px;
+            padding: 2px 12px;
+            border-radius: 30px;
+            color: #fff;
+        }
+        .sub {
+            color: #8892a8;
+            margin-top: 6px;
+            margin-bottom: 22px;
+            font-size: 15px;
+        }
+        textarea {
+            width: 100%;
+            height: 160px;
+            background: #0f131c;
+            border: 1px solid #2d3545;
+            border-radius: 16px;
+            color: #e4e7ed;
+            padding: 16px;
+            font-size: 15px;
+            resize: vertical;
+            font-family: inherit;
+            outline: none;
+            transition: 0.2s;
+        }
+        textarea:focus {
+            border-color: #2d8cff;
+            box-shadow: 0 0 0 3px rgba(45, 140, 255, 0.15);
+        }
+        .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 18px 0 12px;
+        }
+        .row button {
+            background: #2d8cff;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+            flex: 1 1 auto;
+            min-width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .row button:hover {
+            background: #1a6edb;
+            transform: scale(1.02);
+        }
+        .row button.secondary {
+            background: #2d3545;
+        }
+        .row button.secondary:hover {
+            background: #3d465a;
+        }
+        .samples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0 18px;
+        }
+        .samples button {
+            background: #242b3a;
+            border: 1px solid #2d3545;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #b0bcca;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .samples button:hover {
+            background: #2d8cff;
+            color: #fff;
+            border-color: #2d8cff;
+        }
+        #result {
+            margin-top: 22px;
+            background: #0f131c;
+            border-radius: 16px;
+            padding: 18px 20px;
+            border-left: 4px solid #2d8cff;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            font-size: 15px;
+            min-height: 60px;
+            display: none;
+        }
+        #result.show {
+            display: block;
+        }
+        .loader {
+            display: none;
+            margin: 16px 0 10px;
+            color: #8892a8;
+            font-size: 14px;
+            align-items: center;
+            gap: 10px;
+        }
+        .loader.show {
+            display: flex;
+        }
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #2d3545;
+            border-top-color: #2d8cff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .footer {
+            margin-top: 28px;
+            font-size: 13px;
+            color: #5a657a;
+            text-align: center;
+            border-top: 1px solid #1f2736;
+            padding-top: 20px;
+        }
+        .footer a {
+            color: #2d8cff;
+            text-decoration: none;
+        }
+        .badge {
+            background: #1f2736;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #8892a8;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>⚖️ Legal AI <span>v1</span></h1>
+    <div class="sub">Paste a contract clause — get risks &amp; a plain‑English breakdown</div>
+
+    <textarea id="clause" placeholder="Paste your legal clause here…">This agreement is governed by California law. Either party may terminate with 30 days written notice.</textarea>
+
+    <div class="row">
+        <button id="analyzeBtn">🔍 Analyze Risks</button>
+        <button id="summarizeBtn">📄 Summarize</button>
+        <button id="clearBtn" class="secondary">✕ Clear</button>
+    </div>
+
+    <div class="samples">
+        <button data-sample="This agreement is governed by California law. Either party may terminate with 30 days written notice.">📄 NDA</button>
+        <button data-sample="The Client agrees to pay $150 per hour. Late payments shall accrue interest at 1.5% per month.">💳 Payment</button>
+        <button data-sample="Confidential information includes all business, financial, and technical data. This agreement is effective as of the date signed.">🔒 Confidentiality</button>
+    </div>
+
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+        <span>AI is thinking…</span>
+    </div>
+
+    <div id="result"></div>
+
+    <div class="footer">
+        <span class="badge">⚡ Hosted on Railway</span>
+        &nbsp;·&nbsp; <a href="#" id="pingLink">Check API status</a>
+    </div>
+</div>
+
+<script>
+    const API_BASE = 'https://ai-legal-assistant-production-419a.up.railway.app';
+
+    const clause = document.getElementById('clause');
+    const resultDiv = document.getElementById('result');
+    const loader = document.getElementById('loader');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const summarizeBtn = document.getElementById('summarizeBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const pingLink = document.getElementById('pingLink');
+
+    // --- Sample buttons ---
+    document.querySelectorAll('[data-sample]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            clause.value = btn.dataset.sample;
+            resultDiv.classList.remove('show');
+            resultDiv.textContent = '';
+        });
+    });
+
+    // --- Clear ---
+    clearBtn.addEventListener('click', () => {
+        clause.value = '';
+        resultDiv.classList.remove('show');
+        resultDiv.textContent = '';
+    });
+
+    // --- Ping (check API) ---
+    pingLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        fetch(`${API_BASE}/ping`)
+            .then(r => r.json())
+            .then(data => {
+                resultDiv.textContent = '✅ API is alive: ' + JSON.stringify(data, null, 2);
+                resultDiv.classList.add('show');
+            })
+            .catch(err => {
+                resultDiv.textContent = '❌ API unreachable: ' + err.message;
+                resultDiv.classList.add('show');
+            });
+    });
+
+    // --- Generic API call ---
+    async function callAPI(endpoint, text) {
+        if (!text.trim()) {
+            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
+            resultDiv.classList.add('show');
+            return;
+        }
+
+        loader.classList.add('show');
+        resultDiv.classList.remove('show');
+        resultDiv.textContent = '';
+
+        try {
+            const response = await fetch(`${API_BASE}/${endpoint}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: text })
+            });
+
+            if (!response.ok) {
+                const errText = await response.text();
+                throw new Error(`Server error (${response.status}): ${errText}`);
+            }
+
+            const data = await response.json();
+            const content = data.analysis || data.summary || '⚠️ No content in response.';
+            resultDiv.textContent = content;
+            resultDiv.classList.add('show');
+        } catch (error) {
+            resultDiv.textContent = '❌ Error: ' + error.message;
+            resultDiv.classList.add('show');
+        } finally {
+            loader.classList.remove('show');
+        }
+    }
+
+    analyzeBtn.addEventListener('click', () => callAPI('analyze', clause.value));
+    summarizeBtn.addEventListener('click', () => callAPI('summarize', clause.value));
+</script>
+
+</body>
+</html>
