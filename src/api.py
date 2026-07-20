@@ -32,7 +32,7 @@ def analyze():
 
     prompt = f"Explain this legal clause in plain English. Highlight risks:\n\n{text}"
     try:
-        result = legal_ai(prompt, max_new_tokens=150, do_sample=True, temperature=0.7)
+        result = legal_ai(prompt, max_new_tokens=80, do_sample=True, temperature=0.7)
         raw = result[0]["generated_text"]
         clean = raw.replace(prompt, "").strip()
         return jsonify({"analysis": clean or "No analysis generated."})
@@ -48,7 +48,7 @@ def summarize():
 
     prompt = f"Summarize this legal clause:\n\n{text}"
     try:
-        result = legal_ai(prompt, max_new_tokens=80, do_sample=True, temperature=0.7)
+        result = legal_ai(prompt, max_new_tokens=60, do_sample=True, temperature=0.7)
         raw = result[0]["generated_text"]
         clean = raw.replace(prompt, "").strip()
         return jsonify({"summary": clean or "No summary generated."})
