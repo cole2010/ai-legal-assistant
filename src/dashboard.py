@@ -58,7 +58,7 @@ if clear:
 # ---------- API CALL ----------
 def call_api(endpoint, payload):
     try:
-        res = requests.post(f"{API_URL}/{endpoint}", json=payload, timeout=60)
+        res = requests.post(f"{API_URL}/{endpoint}", json=payload, timeout=120)
         if res.status_code == 200:
             data = res.json()
             return data.get("analysis") or data.get("summary") or data.get("response") or "⚠️ No content in response."
