@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Legal AI Assistant</title>
+    <title>Legal AI – Contract Analyzer</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0b0e14;
-            color: #e4e7ed;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f4f9;
+            color: #1a202c;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,37 +17,112 @@
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             width: 100%;
-            background: #1a1f2b;
-            padding: 30px;
-            border-radius: 24px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.6);
-            border: 1px solid #2d3545;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
         }
-        h1 { font-size: 28px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-        h1 span { background: #2d8cff; font-size: 18px; padding: 2px 12px; border-radius: 30px; color: #fff; }
-        .sub { color: #8892a8; margin-top: 6px; margin-bottom: 22px; font-size: 15px; }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0b2b4a;
+        }
+        .logo span {
+            background: #2563eb;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .buy-btn {
+            background: #16a34a;
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .buy-btn:hover { background: #15803d; transform: scale(1.02); }
+        .sub {
+            color: #4a5568;
+            margin-bottom: 24px;
+            font-size: 16px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 16px;
+        }
+        .sub strong { color: #2563eb; }
+        .upload-area {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .upload-area input[type="file"] {
+            border: 1px solid #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 12px;
+            background: #f7fafc;
+            font-size: 14px;
+            flex: 1;
+        }
+        .upload-area button {
+            background: #2d3748;
+            color: #fff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .upload-area button:hover { background: #1a202c; }
         textarea {
             width: 100%;
-            height: 160px;
-            background: #0f131c;
-            border: 1px solid #2d3545;
+            height: 180px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 16px;
-            color: #e4e7ed;
+            color: #1a202c;
             padding: 16px;
             font-size: 15px;
             resize: vertical;
             font-family: inherit;
             outline: none;
             transition: 0.2s;
+            margin-bottom: 16px;
         }
-        textarea:focus { border-color: #2d8cff; box-shadow: 0 0 0 3px rgba(45, 140, 255, 0.15); }
-        .row { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 12px; }
+        textarea:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+        .row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
         .row button {
-            background: #2d8cff;
+            background: #2563eb;
             border: none;
-            padding: 12px 26px;
+            padding: 12px 28px;
             border-radius: 40px;
             font-weight: 600;
             font-size: 15px;
@@ -55,35 +130,40 @@
             cursor: pointer;
             transition: 0.2s;
             flex: 1 1 auto;
-            min-width: 120px;
+            min-width: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
         }
-        .row button:hover { background: #1a6edb; transform: scale(1.02); }
-        .row button.secondary { background: #2d3545; }
-        .row button.secondary:hover { background: #3d465a; }
-        .samples { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+        .row button:hover { background: #1d4ed8; transform: scale(1.01); }
+        .row button.secondary { background: #64748b; }
+        .row button.secondary:hover { background: #475569; }
+        .samples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
         .samples button {
-            background: #242b3a;
-            border: 1px solid #2d3545;
+            background: #edf2f7;
+            border: 1px solid #e2e8f0;
             padding: 6px 16px;
             border-radius: 40px;
-            color: #b0bcca;
+            color: #2d3748;
             font-size: 13px;
             cursor: pointer;
             transition: 0.2s;
         }
-        .samples button:hover { background: #2d8cff; color: #fff; border-color: #2d8cff; }
+        .samples button:hover { background: #2563eb; color: #fff; border-color: #2563eb; }
         #result {
-            margin-top: 22px;
-            background: #0f131c;
+            margin-top: 20px;
+            background: #f7fafc;
             border-radius: 16px;
-            padding: 18px 20px;
-            border-left: 4px solid #2d8cff;
+            padding: 20px 24px;
+            border-left: 4px solid #2563eb;
             white-space: pre-wrap;
-            line-height: 1.6;
+            line-height: 1.7;
             font-size: 15px;
             min-height: 60px;
             display: none;
@@ -92,7 +172,7 @@
         .loader {
             display: none;
             margin: 16px 0 10px;
-            color: #8892a8;
+            color: #4a5568;
             font-size: 14px;
             align-items: center;
             gap: 10px;
@@ -101,36 +181,89 @@
         .spinner {
             width: 18px;
             height: 18px;
-            border: 2px solid #2d3545;
-            border-top-color: #2d8cff;
+            border: 2px solid #e2e8f0;
+            border-top-color: #2563eb;
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
-        .footer {
-            margin-top: 28px;
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+        .actions button {
+            background: #edf2f7;
+            border: 1px solid #e2e8f0;
+            padding: 6px 16px;
+            border-radius: 30px;
             font-size: 13px;
-            color: #5a657a;
-            text-align: center;
-            border-top: 1px solid #1f2736;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .actions button:hover { background: #e2e8f0; }
+        .history {
+            margin-top: 28px;
+            border-top: 1px solid #e2e8f0;
             padding-top: 20px;
         }
-        .footer a { color: #2d8cff; text-decoration: none; }
+        .history h3 { font-size: 18px; margin-bottom: 12px; color: #1a202c; }
+        .history-item {
+            background: #f7fafc;
+            padding: 10px 14px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            border: 1px solid #e2e8f0;
+        }
+        .history-item .text { color: #1a202c; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .history-item .date { color: #718096; font-size: 12px; }
+        .footer {
+            margin-top: 32px;
+            font-size: 13px;
+            color: #a0aec0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+        .footer a { color: #2563eb; text-decoration: none; }
         .badge {
-            background: #1f2736;
+            background: #edf2f7;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 12px;
-            color: #8892a8;
-            display: inline-block;
+            color: #4a5568;
+        }
+        .error { color: #e53e3e; }
+        @media (max-width: 640px) {
+            .container { padding: 24px; }
+            .logo h1 { font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>⚖️ Legal AI <span>v1</span></h1>
-    <div class="sub">Paste a contract clause — get risks &amp; a plain‑English breakdown</div>
+    <div class="header">
+        <div class="logo">
+            <h1>⚖️ Legal AI</h1>
+            <span>Pro</span>
+        </div>
+        <a href="#" class="buy-btn" id="buyButton">🔓 Buy Access</a>
+    </div>
+    <div class="sub">
+        Upload a contract or paste a clause. Get <strong>plain‑English risks &amp; explanations</strong>.
+        <span style="float: right; font-size: 13px; color: #a0aec0;">Free trial: 3 analyses</span>
+    </div>
+
+    <div class="upload-area">
+        <input type="file" id="fileUpload" accept=".txt" />
+        <button id="uploadBtn">📁 Upload .txt</button>
+    </div>
 
     <textarea id="clause" placeholder="Paste your legal clause here…">This agreement is governed by California law. Either party may terminate with 30 days written notice.</textarea>
 
@@ -153,22 +286,101 @@
 
     <div id="result"></div>
 
+    <div class="actions">
+        <button id="copyBtn">📋 Copy</button>
+        <button id="downloadBtn">📥 Download .txt</button>
+        <button id="clearHistoryBtn">🗑️ Clear History</button>
+    </div>
+
+    <div class="history" id="historySection">
+        <h3>📜 History</h3>
+        <div id="historyList"></div>
+    </div>
+
     <div class="footer">
-        <span class="badge">⚡ Powered by Cloudflare Functions</span>
+        <span class="badge">⚡ Powered by Hugging Face</span>
+        &nbsp;·&nbsp; <a href="https://legalassistantai.org">legalassistantai.org</a>
     </div>
 </div>
 
 <script>
-    // ---------- CALL THE CLOUDFLARE FUNCTION ----------
+    // ---------- DOM REFS ----------
+    const clause = document.getElementById('clause');
+    const resultDiv = document.getElementById('result');
+    const loader = document.getElementById('loader');
+    const historyList = document.getElementById('historyList');
+
+    let analysisCount = 0;
+    const MAX_FREE = 3;
+
+    // ---------- LOAD HISTORY FROM LOCAL STORAGE ----------
+    function loadHistory() {
+        const stored = localStorage.getItem('legalAI_history');
+        if (stored) {
+            const items = JSON.parse(stored);
+            items.forEach(item => addHistoryItem(item.text, item.result, item.date));
+        }
+        const count = localStorage.getItem('legalAI_count');
+        if (count) analysisCount = parseInt(count, 10);
+    }
+
+    function saveHistory(text, result) {
+        const items = JSON.parse(localStorage.getItem('legalAI_history') || '[]');
+        items.push({ text, result, date: new Date().toLocaleString() });
+        localStorage.setItem('legalAI_history', JSON.stringify(items));
+        addHistoryItem(text, result, new Date().toLocaleString());
+    }
+
+    function addHistoryItem(text, result, date) {
+        const item = document.createElement('div');
+        item.className = 'history-item';
+        item.innerHTML = `
+            <span class="text">${text.slice(0, 60)}${text.length > 60 ? '…' : ''}</span>
+            <span class="date">${date}</span>
+        `;
+        historyList.appendChild(item);
+    }
+
+    function clearHistory() {
+        localStorage.removeItem('legalAI_history');
+        historyList.innerHTML = '';
+    }
+
+    // ---------- BUY BUTTON ----------
+    document.getElementById('buyButton').addEventListener('click', (e) => {
+        e.preventDefault();
+        // Replace with your actual payment link (Stripe / Gumroad)
+        alert('🚀 Redirect to payment page – set your Stripe/Gumroad link here.');
+        // window.location.href = 'https://your-payment-link.com';
+    });
+
+    // ---------- FILE UPLOAD ----------
+    document.getElementById('uploadBtn').addEventListener('click', () => {
+        const fileInput = document.getElementById('fileUpload');
+        const file = fileInput.files[0];
+        if (!file) return alert('Select a .txt file first.');
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            clause.value = e.target.result;
+            resultDiv.classList.remove('show');
+            resultDiv.textContent = '';
+        };
+        reader.readAsText(file);
+    });
+
+    // ---------- API CALL ----------
     async function callAPI(action, text) {
         if (!text.trim()) {
-            document.getElementById('result').textContent = '⚠️ Please paste a legal clause first.';
-            document.getElementById('result').classList.add('show');
+            resultDiv.textContent = '⚠️ Please paste a legal clause first.';
+            resultDiv.classList.add('show');
             return;
         }
 
-        const loader = document.getElementById('loader');
-        const resultDiv = document.getElementById('result');
+        if (analysisCount >= MAX_FREE) {
+            resultDiv.textContent = '🔒 You\'ve used your free analyses. Please buy access to continue.';
+            resultDiv.classList.add('show');
+            return;
+        }
 
         loader.classList.add('show');
         resultDiv.classList.remove('show');
@@ -182,15 +394,25 @@
             });
 
             const data = await response.json();
+            if (data.error) throw new Error(data.error);
 
-            if (data.error) {
-                throw new Error(data.error);
+            const result = data.result || 'No response.';
+            resultDiv.textContent = result;
+            resultDiv.classList.add('show');
+
+            analysisCount++;
+            localStorage.setItem('legalAI_count', analysisCount);
+            saveHistory(text, result);
+
+            const remaining = MAX_FREE - analysisCount;
+            if (remaining > 0) {
+                resultDiv.textContent += `\n\n📊 Free analyses remaining: ${remaining}`;
+            } else {
+                resultDiv.textContent += '\n\n🔒 Free trial used. Please buy access to continue.';
             }
 
-            resultDiv.textContent = data.result;
-            resultDiv.classList.add('show');
-        } catch (error) {
-            resultDiv.textContent = '❌ Error: ' + error.message;
+        } catch (err) {
+            resultDiv.textContent = '❌ Error: ' + err.message;
             resultDiv.classList.add('show');
         } finally {
             loader.classList.remove('show');
@@ -198,29 +420,45 @@
     }
 
     // ---------- EVENT LISTENERS ----------
-    document.getElementById('analyzeBtn').addEventListener('click', () => {
-        const text = document.getElementById('clause').value;
-        callAPI('analyze', text);
-    });
-
-    document.getElementById('summarizeBtn').addEventListener('click', () => {
-        const text = document.getElementById('clause').value;
-        callAPI('summarize', text);
-    });
+    document.getElementById('analyzeBtn').addEventListener('click', () => callAPI('analyze', clause.value));
+    document.getElementById('summarizeBtn').addEventListener('click', () => callAPI('summarize', clause.value));
 
     document.getElementById('clearBtn').addEventListener('click', () => {
-        document.getElementById('clause').value = '';
-        document.getElementById('result').classList.remove('show');
-        document.getElementById('result').textContent = '';
+        clause.value = '';
+        resultDiv.classList.remove('show');
+        resultDiv.textContent = '';
     });
 
     document.querySelectorAll('[data-sample]').forEach(btn => {
         btn.addEventListener('click', () => {
-            document.getElementById('clause').value = btn.dataset.sample;
-            document.getElementById('result').classList.remove('show');
-            document.getElementById('result').textContent = '';
+            clause.value = btn.dataset.sample;
+            resultDiv.classList.remove('show');
+            resultDiv.textContent = '';
         });
     });
+
+    document.getElementById('copyBtn').addEventListener('click', () => {
+        if (resultDiv.textContent) {
+            navigator.clipboard.writeText(resultDiv.textContent).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(() => alert('Press Ctrl+C to copy.'));
+        }
+    });
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+        if (resultDiv.textContent) {
+            const blob = new Blob([resultDiv.textContent], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `legal_analysis_${new Date().toISOString().slice(0,10)}.txt`;
+            a.click();
+        }
+    });
+
+    document.getElementById('clearHistoryBtn').addEventListener('click', clearHistory);
+
+    // ---------- INIT ----------
+    loadHistory();
 </script>
 
 </body>
